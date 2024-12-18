@@ -23,7 +23,7 @@ Credit to my partner Alexander Wang for the exceptional hardware design.
 ## Web Interface
 Here is a picture of our web interface:
 
-<img src="Screenshot 2024-12-17 231104.png" width="500" height="700">
+<img src="Screenshot 2024-12-17 231104.png" width="550" height="700">
 
 Credit to Claude 3.5 LLM Model for the HTML and CSS code beind the web page.
 
