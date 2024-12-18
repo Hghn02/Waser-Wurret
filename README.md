@@ -9,7 +9,7 @@ In Phase 1, the challenge was to hit 13 targets sequentially based on coordinate
 ---
 
 ## Phase 2 Target ID Input
-In Phase 2, we manually entered four target IDs into the web interface and hit those targets. This phase emphasized manual control via the user interface and required accurate angle calculations and motor control to ensure precision.
+In Phase 2, we manually entered four target IDs into the web interface and hit those targets. This phase required filtering of the JSON data and used some of the code from Phase 1 to drive the motors to the targets.
 
 ---
 
