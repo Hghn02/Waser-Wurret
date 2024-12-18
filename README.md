@@ -16,7 +16,7 @@ In Phase 2, we manually entered four target IDs into the web interface and hit t
 ## Hardware Design
 Here is a picture of our actual turret:
 
-<img src="" alt="Screenshot Placeholder" width="650" height="400">
+<img src="AB1EA855-9786-4916-A7A5-55DB48450EA0_1_102_o.jpeg" alt="Screenshot Placeholder" width="650" height="400">
 
 
 
