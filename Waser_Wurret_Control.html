@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waser Wurret Control</title>
+    <style>
+        body {
+            background-color: #1e293b; /* Dark blue-gray background */
+            color: #f8fafc; /* Light text */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .military-panel {
+            background-color: #334155; /* Darker gray-blue for panels */
+            border: 2px solid #475569; /* Subtle border */
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        button {
+            background-color: #16a34a; /* Military green */
+            color: #f8fafc;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        button.off {
+            background-color: #b91c1c; /* Red for OFF */
+        }
+        button.off:hover {
+            background-color: #991b1b; /* Darker red on hover */
+        }
+        button:hover {
+            background-color: #15803d; /* Darker green on hover */
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .flex input {
+            flex: 1;
+        }
+        .flex label {
+            width: 35%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="military-panel">
+        <h1>Waser Wurret Control</h1>
+        
+        <!-- Laser On/Off Button -->
+        <div>
+            <h2>Laser Control</h2>
+            <form method="POST" action="">
+                <input type="hidden" name="laserState" value="on">
+                <button type="submit" class="on" style="width: 100%;">Turn Laser ON</button>
+            </form>
+            <form method="POST" action="">
+                <input type="hidden" name="laserState" value="off">
+                <button type="submit" class="off" style="width: 100%;">Turn Laser OFF</button>
+            </form>
+        </div>
+
+        <!-- Phase 1: Coordinate Loading -->
+        <div>
+            <h2>Phase 1: Hit Targets</h2>
+            <form method="POST" action="">
+                <button type="submit" id="startPhase1" name="startPhase1" value="1" style="width: 100%;">Start Phase 1</button>
+            </form>
+        </div>
+
+        <!-- Phase 2: Target IDs -->
+        <div>
+            <h2>Phase 2: Target IDs</h2>
+            <form method="POST" action="">
+                <input type="text" id="targetID1" name="targetID1" placeholder="Target ID 1">
+                <input type="text" id="targetID2" name="targetID2" placeholder="Target ID 2">
+                <input type="text" id="targetID3" name="targetID3" placeholder="Target ID 3">
+                <input type="text" id="targetID4" name="targetID4" placeholder="Target ID 4">
+                <button type="submit" id="startPhase2" name="startPhase2" value="1" style="width: 100%;">Start Phase 2</button>
+            </form>
+        </div>
+
+        <!-- Manual Movement -->
+        <div>
+            <h2>Manual Movement</h2>
+            <form method="POST" action="">
+                <div class="flex">
+                    <label for="azimuthAngle">Azimuth Angle (°):</label>
+                    <input 
+                        type="number" 
+                        id="azimuthAngle" 
+                        name="azimuthAngle" 
+                        placeholder="Enter Azimuth Angle"
+                    >
+                </div>
+                <div class="flex">
+                    <label for="elevationAngle">Elevation Angle (°):</label>
+                    <input 
+                        type="number" 
+                        id="elevationAngle" 
+                        name="elevationAngle" 
+                        placeholder="Enter Elevation Angle"
+                    >
+                </div>
+                <button type="submit" id="moveMotorsBool" name="moveMotorsBool" value="1" style="width: 100%;">Move Motors</button>
+            </form>
+        </div>
+
+        <!-- Zero Motors -->
+        <div>
+            <h2>Zero Motors</h2>
+            <form method="POST" action="">
+                <button type="submit" id="zeroMotorsBool" name="zeroMotorsBool" value="1" style="width: 100%;">Zero Motors</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
