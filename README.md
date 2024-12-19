@@ -19,7 +19,7 @@ Here is a picture of our actual turret:
 <img src="AB1EA855-9786-4916-A7A5-55DB48450EA0_1_102_o.jpeg" alt="Screenshot Placeholder" width="650" height="400">
 
 Credit to my partner Alexander Wang for the exceptional hardware design.
-(https://alexwan9.myportfolio.com/)
+[See his work here](https://alexwan9.myportfolio.com/)
 
 ## Web Interface
 Here is a picture of our web interface:
