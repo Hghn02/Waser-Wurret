@@ -6,6 +6,7 @@ This was a project for my Mechatronics &amp; IoT class in which my partner and I
 ## Phase 1 Sequential Targeting
 In Phase 1, the challenge was to hit 13 targets sequentially based on coordinate data provided via an online JSON file. We designed a user interface using LLM tools, while the rest of the software was written entirely from scratch by my partner and me. To achieve precise targeting, we calculated azimuth and elevation angles for reach target set of coordinates. Then we simultaneously controlled two stepper motors to drive the turret to each target using the calculated rotation angles. Additionally, we implemented features to calibrate and zero the stepper motors inside the GUI and wrote logic to handle GUI button states.
 
+### Fetching Coordinates
 ``` python
 def fetchCoords():
     # Fetch turret and target coordinates using requests
@@ -19,24 +20,10 @@ def fetchCoords():
         
         jsonTurret = r1.json()
         jsonTargets = r2.json()
-
-        print(jsonTurret)
-        for team in jsonTurret:
-            if team['Team Name'] == 'Waser Wurret':
-                turretCoords = (team['x'], team['y'])
-                break
-        
-        for t in jsonTargets:
-            targetNum = t["target number"]
-            x = float(t["x"])
-            y = float(t["y"])
-            z = float(t["z"])
-            targets.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
-        
-        return turretCoords, targets
-    except (HTTPError, ValueError) as e:
-        print(f"Error fetching coordinates: {e}")
 ```
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
+
+### Angle Logic
 ---
 
 ## Phase 2 Target ID Input
