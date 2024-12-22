@@ -23,7 +23,26 @@ def fetchCoords():
 ```
 [View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
 
-### Angle Logic
+### Phase 1 Sequence
+``` python
+def executePhase1(turretCoords, targets):
+    
+    sortedTargets = sorted(targets, key=lambda x: int(x['target number']))
+    print(sortedTargets)
+
+    # Calculating azimuth and elevationa angles
+    for t in sortedTargets:
+        if t["x"]-float(turretCoords[0]) == 0:
+            if t["y"] > float(turretCoords[1]):
+                az_theta = 90
+            else:
+                az_theta = -90
+        else:
+            az_theta = math.degrees(
+                math.atan(((t["y"]-float(turretCoords[1])))/(t["x"]-float(turretCoords[0]))))
+        if (t["x"] < float(turretCoords[0])):
+```
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L102C1-L136C1)
 ---
 
 ## Phase 2 Target ID Input
