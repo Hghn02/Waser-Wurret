@@ -91,7 +91,7 @@ Credit to my partner Alexander Wang for the exceptional hardware design.
 [See his work here](https://alexwan9.myportfolio.com/waser-wurret-1)
 
 ## Web Interface
-We implemented our web interface using sockets and threading. The web interface was run in a separate loop then the main loop.
+We implemented our web interface using sockets and threading. The web interface was run in a separate loop than the main loop.
 Here is a picture of our web interface:
 
 <img src="Screenshot 2024-12-17 231104.png" width="550" height="700">
