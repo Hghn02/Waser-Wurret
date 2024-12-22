@@ -63,7 +63,7 @@ def moveMotors(az_theta, el_theta):
 In Phase 2, we manually entered four target IDs into the web interface and fired the laser at those targets. This phase required filtering of the JSON data and reused some of the code from Phase 1 to drive the motors to the targets. 
 
 ### Phase 2 Sequence
-```
+``` python
 def executePhase2(turretCoords, targets, ids):
     # Phase 2: Speed challenge to hit four targets
     idCoords = []
