@@ -55,6 +55,8 @@ def moveMotors(az_theta, el_theta):
     p1.join()
     p2.join()
 ```
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L47C1-L54C14)
+
 ---
 
 ## Phase 2 Target ID Input
