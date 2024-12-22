@@ -44,6 +44,17 @@ def executePhase1(turretCoords, targets):
 ```
 [View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
 
+### Manual Movement
+``` python
+def moveMotors(az_theta, el_theta):
+    # Move motors to specified azimuth and elevation angles
+    p1 = multiprocessing.Process(target=m1.rotate, args=(az_theta,))
+    p2 = multiprocessing.Process(target=m2.rotate, args=(el_theta,))
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
+```
 ---
 
 ## Phase 2 Target ID Input
