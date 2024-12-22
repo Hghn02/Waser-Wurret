@@ -4,7 +4,7 @@ This was a project for my Mechatronics &amp; IoT class in which my partner and I
 ---
 
 ## Phase 1 Sequential Targeting
-In Phase 1, the challenge was to hit 13 targets sequentially based on coordinate data provided via an online JSON file. We designed a user interface using LLM tools, while the rest of the software was written entirely from scratch by my partner and me. First we used the requests library to access a url with JSON data containing our turret coordinates and target coordinates and stored them in a tuple and list of dictionaries respectively. To achieve precise targeting, we calculated azimuth and elevation angles for each target set of coordinates. Then we simultaneously controlled two stepper motors using multiprocessing to drive the turret to each target using the calculated rotation angles. Additionally, we implemented features to calibrate and zero the stepper motors inside the GUI and wrote logic to handle GUI button states.
+In Phase 1, the challenge was to hit 13 targets sequentially based on coordinate data provided via an online JSON file. We designed a user interface using LLM tools, while the rest of the software was written entirely from scratch by my partner and me. First we used the requests library to access a url with JSON data containing our turret coordinates and target coordinates and stored them in a tuple and list of dictionaries respectively. To achieve precise targeting, we calculated azimuth and elevation angles for each target set of coordinates. Then we simultaneously controlled two stepper motors using multiprocessing to drive the turret to each target using the calculated rotation angles. Once the target angles were reached a laser diode was fired for 3 seconds at the target then turned off until the next one. Additionally, we implemented features to calibrate ,zero the stepper motors, and manually move them inside the GUI and wrote logic to handle GUI button states.
 
 ### Fetching Coordinates
 ``` python
@@ -58,7 +58,7 @@ def moveMotors(az_theta, el_theta):
 ---
 
 ## Phase 2 Target ID Input
-In Phase 2, we manually entered four target IDs into the web interface and hit those targets. This phase required filtering of the JSON data and used some of the code from Phase 1 to drive the motors to the targets.
+In Phase 2, we manually entered four target IDs into the web interface and fired the laser at those targets. This phase required filtering of the JSON data and reused some of the code from Phase 1 to drive the motors to the targets. 
 
 ---
 
