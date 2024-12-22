@@ -62,6 +62,24 @@ def moveMotors(az_theta, el_theta):
 ## Phase 2 Target ID Input
 In Phase 2, we manually entered four target IDs into the web interface and fired the laser at those targets. This phase required filtering of the JSON data and reused some of the code from Phase 1 to drive the motors to the targets. 
 
+### Phase 2 Sequence
+```
+def executePhase2(turretCoords, targets, ids):
+    # Phase 2: Speed challenge to hit four targets
+    idCoords = []
+    # Find 4 target ids in list of 13 targets and store their coords in new list
+    for j in targets:
+        if j["target number"] in ids:
+            targetNum = j["target number"]
+            x = float(j["x"])
+            y = float(j["y"])
+            z = float(j["z"])
+            idCoords.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
+    
+    executePhase1(turretCoords,idCoords) # Sending new list of targets to phase 1 func
+```
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L142C1-L154C87)
+
 ---
 
 ## Hardware Design
