@@ -42,7 +42,8 @@ def executePhase1(turretCoords, targets):
                 math.atan(((t["y"]-float(turretCoords[1])))/(t["x"]-float(turretCoords[0]))))
         if (t["x"] < float(turretCoords[0])):
 ```
-[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L102C1-L136C1)
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
+
 ---
 
 ## Phase 2 Target ID Input
