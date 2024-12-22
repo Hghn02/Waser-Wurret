@@ -100,9 +100,11 @@ def fetchCoords():
         print(f"Error fetching coordinates: {e}")
 
 def executePhase1(turretCoords, targets):
-    #Phase 1: Process all targets
+    
     sortedTargets = sorted(targets, key=lambda x: int(x['target number']))
     print(sortedTargets)
+
+    # Calculating azimuth and elevationa angles
     for t in sortedTargets:
         if t["x"]-float(turretCoords[0]) == 0:
             if t["y"] > float(turretCoords[1]):
@@ -123,14 +125,16 @@ def executePhase1(turretCoords, targets):
                 (t["x"]-float(turretCoords[0]))**2 + (t["y"]-float(turretCoords[1]))**2)
             el_theta = math.degrees(math.atan((t["z"]-12.5)/(h_distance)))
         print(f"Target {t['target number']} - Elevation angle: {el_theta:.2f}")
-        
+
+        # Actuating stepper motors simultaneously to those angles
         p1 = multiprocessing.Process(target=m1.goAngle, args=(az_theta,))
         p2 = multiprocessing.Process(target=m2.goAngle, args=(el_theta,))
         p1.start()
         p2.start()
         p1.join()
         p2.join()
-        
+
+        # Laser firing for 3 seconds
         GPIO.output(25,1)
         time.sleep(3)
         GPIO.output(25,0)
@@ -138,7 +142,7 @@ def executePhase1(turretCoords, targets):
 def executePhase2(turretCoords, targets, ids):
     # Phase 2: Speed challenge to hit four targets
     idCoords = []
-    
+    # Find 4 target ids in list of 13 targets and store their coords in new list
     for j in targets:
         if j["target number"] in ids:
             targetNum = j["target number"]
@@ -147,7 +151,7 @@ def executePhase2(turretCoords, targets, ids):
             z = float(j["z"])
             idCoords.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
     
-    executePhase1(turretCoords,idCoords)
+    executePhase1(turretCoords,idCoords) # Sending new list of targets to phase 1 func
 
 def web_page():
     """Generate the HTML control page."""
@@ -389,7 +393,7 @@ try:
         # Zero Motors logic
         if zeroMotorsBool:
             try:
-                goZero()
+                goZero() # hardware zero
                 print("Zero Motors Button Pushed!")
             except Exception as e:
                 print(f"Error in zeroing motors movement: {e}")
@@ -424,7 +428,7 @@ try:
                 print(f"Manual Move Azimuth angle: {az:.2f}")
                 print(f"Manual Move Elevation angle: {el:.2f}")
                 moveMotors(az, el)
-                zeroMotors()
+                zeroMotors() # Software zero
 
             except Exception as e:
                 print(f"Error in manual motor movement: {e}")
