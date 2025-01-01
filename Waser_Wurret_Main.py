@@ -87,13 +87,8 @@ def fetchCoords():
             if team['Team Name'] == 'Waser Wurret':
                 turretCoords = (team['x'], team['y'])
                 break
-        
-        for t in jsonTargets:
-            targetNum = t["target number"]
-            x = float(t["x"])
-            y = float(t["y"])
-            z = float(t["z"])
-            targets.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
+
+        targets = [{'target number' : t["target number"], 'x': float(j["x"]), 'y': float(j["y"]), 'z': float(j["z"])} for t in jsonTargets]
         
         return turretCoords, targets
     except (HTTPError, ValueError) as e:
@@ -143,13 +138,7 @@ def executePhase2(turretCoords, targets, ids):
     # Phase 2: Speed challenge to hit four targets
     idCoords = []
     # Find 4 target ids in list of 13 targets and store their coords in new list
-    for j in targets:
-        if j["target number"] in ids:
-            targetNum = j["target number"]
-            x = float(j["x"])
-            y = float(j["y"])
-            z = float(j["z"])
-            idCoords.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
+    idCoords = [{'target number' : j["target number"], 'x': float(j["x"]), 'y': float(j["y"]), 'z': float(j["z"]}) for j in targets if j["target number"] in ids]
     
     executePhase1(turretCoords,idCoords) # Sending new list of targets to phase 1 func
 
