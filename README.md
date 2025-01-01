@@ -21,7 +21,7 @@ def fetchCoords():
         jsonTurret = r1.json()
         jsonTargets = r2.json()
 ```
-[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L96C1)
 
 ### Phase 1 Sequence
 ``` python
@@ -42,7 +42,7 @@ def executePhase1(turretCoords, targets):
                 math.atan(((t["y"]-float(turretCoords[1])))/(t["x"]-float(turretCoords[0]))))
         if (t["x"] < float(turretCoords[0])):
 ```
-[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L72C1-L100C50)
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L97C1-L135C26)
 
 ### Manual Movement
 ``` python
@@ -68,17 +68,11 @@ def executePhase2(turretCoords, targets, ids):
     # Phase 2: Speed challenge to hit four targets
     idCoords = []
     # Find 4 target ids in list of 13 targets and store their coords in new list
-    for j in targets:
-        if j["target number"] in ids:
-            targetNum = j["target number"]
-            x = float(j["x"])
-            y = float(j["y"])
-            z = float(j["z"])
-            idCoords.append({'target number' : targetNum, 'x':x, 'y':y, 'z':z})
+    idCoords = [{'target number' : j["target number"], 'x': float(j["x"]), 'y': float(j["y"]), 'z': float(j["z"]}) for j in targets if j["target number"] in ids]
     
     executePhase1(turretCoords,idCoords) # Sending new list of targets to phase 1 func
 ```
-[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L142C1-L154C87)
+[View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L137C1-L143C87)
 
 ---
 
