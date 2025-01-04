@@ -68,9 +68,10 @@ def executePhase2(turretCoords, targets, ids):
     # Phase 2: Speed challenge to hit four targets
     idCoords = []
     # Find 4 target ids in list of 13 targets and store their coords in new list
-    idCoords = [{'target number' : j["target number"], 'x': float(j["x"]), 'y': float(j["y"]), 'z': float(j["z"]}) for j in targets if j["target number"] in ids]
+    idCoords = [{'target number' : j["target number"], 'x': float(j["x"]), 'y': float(j["y"]), 'z': float(j["z"])} for j in targets if j["target number"] in ids]
     
     executePhase1(turretCoords,idCoords) # Sending new list of targets to phase 1 func
+
 ```
 [View the full function here](https://github.com/Hghn02/Waser-Wurret/blob/main/Waser_Wurret_Main.py#L137C1-L143C87)
 
